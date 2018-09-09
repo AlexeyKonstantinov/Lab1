@@ -1,3 +1,4 @@
+#Класс химический элемент с атрибутами имя, группа, период и семейство.
 class Element:
     def __init__(self, name="default", group=0, period=0, family = "default"):
         self.name = name
@@ -5,10 +6,11 @@ class Element:
         self.period = period
         self.family = family
         
+#Перевод строки в логическую переменную ("Да" - True, "Нет" - False)       
 def Answer(answer):
     if (answer == "Да"):
         return True
-    else:
+    elif (answer == "Нет"):
         return False
 
 
@@ -20,7 +22,7 @@ Nemet = "Неметаллы"
 Gal = "Галогены"
 BlGaz = "Благородные газы"
 
-
+#Создаем список со всеми элементами
 elementArray = []
 elementArray.append(Element("Li", 1, 2, sMet))
 elementArray.append(Element("Be", 2, 2, szMet))
@@ -39,6 +41,7 @@ elementArray.append(Element("S", 16, 3, Nemet))
 elementArray.append(Element("Cl", 17, 3, Gal))
 elementArray.append(Element("Ar", 18, 3, BlGaz))
 
+#Отсеивание элементов в соотвветствии с ответами пользователя
 if( Answer(input("Этот элемент входит во второй период? \n")) ):
     for element in elementArray[:]:
         if (element.period != 2):
@@ -83,6 +86,7 @@ else:
         if (element.family != BlGaz):
             elementArray.remove(element)
 
+#Вывод результата на экран
 print("\n Вот что мы нашли по вашему запросу: \n")
 for element in elementArray:
     print(element.name)
